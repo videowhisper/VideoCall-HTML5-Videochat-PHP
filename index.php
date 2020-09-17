@@ -53,7 +53,7 @@ foreach ($JSfiles as $filename)
 
 //room link
 $roomURL = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0] . '?r=' . $roomID;
-if (!$roomID)  $bodyCode .= '<div class="ui segment"><h4 class="ui header">Invite URL</h4>Invite the other person (client) with this call room URL:<br>' . $roomURL .'</div>';
+if (!$_GET['r']) $bodyCode .= '<div class="ui segment"><h4 class="ui header">Invite URL</h4>Invite the other person (client) with this call room URL:<br>' . $roomURL .'</div>';
 ?>
 <head>
 <?php echo $headCode ?>

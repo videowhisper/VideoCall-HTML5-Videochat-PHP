@@ -2,7 +2,7 @@
 
 [PHP HTML5 Videochat / Video Call](https://demo.videowhisper.com/videocall-html5-videochat-php//)
 
-![PHP HTML5 Videochat / Video Call](/snapshots/h5a-2w-c.png)
+![PHP HTML5 Videochat / Video Call](/snapshots/h5a-2way-call.jpg)
 
 
 Before installing, test the simple setup in the live demo:
