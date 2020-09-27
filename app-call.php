@@ -133,7 +133,7 @@ case 'tick':
 
 case 'options':
 	break;
-	
+
 case 'update':
 	//something changed - let everybody know : update room
 	$update = filter_var($_POST['update'], FILTER_SANITIZE_STRING);
@@ -181,8 +181,14 @@ case 'message':
 	$messageUser = filter_var( $message['userName'], FILTER_SANITIZE_STRING);
 	$messageUserAvatar = filter_var( $message['userAvatar'], FILTER_SANITIZE_URL);
 
-	$meta = array( 'notification'=>$message['notification'], 'userAvatar' => $messageUserAvatar);
-	$metaS = serialize($meta);
+	$meta = array(
+		'notification'=>$message['notification'],
+		'userAvatar' => $messageUserAvatar,
+		'mentionMessage' => intval($message['mentionMessage']),
+		'mentionUser'=> sanitize_text_field($message['mentionUser'])
+	);
+	$metaS = esc_sql(serialize($meta));
+
 
 	if (!$privateUID)  $privateUID = 0; //public room
 
@@ -218,6 +224,8 @@ case 'recorder_upload':
 	if (!$roomName) appFail('No room for recording.');
 	if (strstr($filename, ".php")) appFail('Bad uploader!');
 
+	$mode = $_POST['mode'];   // video/audio
+	$scenario = $_POST['scenario'];  // chat/standalone
 
 	if (!$privateUID)  $privateUID = 0; //public room
 
@@ -243,7 +251,7 @@ case 'recorder_upload':
 	$response['_FILES'] = $_FILES;
 
 
-	$allowed = array('mp3', 'ogg', 'opus', 'mp4', 'webm');
+	$allowed = array('mp3', 'ogg', 'opus', 'mp4', 'webm', 'mkv');
 
 	$uploads = 0;
 	$filename = '';
@@ -279,7 +287,7 @@ case 'recorder_upload':
 
 
 
-	if (!$response['warning'])
+	if ( !$response['warning'] && $scenario == 'chat' )
 	{
 		$url = path2url($filepath);
 
@@ -293,8 +301,11 @@ case 'recorder_upload':
 
 		$meta = array(
 			'userAvatar' => $messageUserAvatar,
-			'audio' => $url,
 		);
+
+		if ($mode == 'video') $meta['video']= $url;
+		else $meta['audio']= $url;
+
 		$metaS = serialize($meta);
 
 
@@ -322,15 +333,18 @@ case 'recorder_upload':
 
 
 		//also update chat log file
+		/*
 		if ($roomName)
 		{
 			$messageText = strip_tags($messageText, '<p><a><img><font><b><i><u>');
-			$messageText = date("F j, Y, g:i a", $ztime) . " <b>$userName</b>: $messageText <audio controls src='$url'></audio>";
+			$messageText = date("F j, Y, g:i a", $ztime) . " <b>$userName</b>: $messageText <video controls src='$url'></video>";
 			$day=date("y-M-j", time());
 			$dfile = fopen($destination . "/Log$day.html", "a");
 			fputs($dfile, $messageText."<BR>");
 			fclose($dfile);
 		}
+		*/
+
 	}
 	break;
 

@@ -60,9 +60,14 @@ if (!$_GET['r']) $bodyCode .= '<div class="ui segment"><h4 class="ui header">Inv
 </head>
 <body>
 <?php echo $bodyCode ?>
-<div class="ui segment"><h4 class="ui header">HTML5 Videochat - Plain PHP / VideoCall 2 Way</h4>This is a simple embedding preview edition, with simple scripts to embed app and showcase few features. This setup implements a 2 way video call room and text chat.
-<br>Live demo for this edition is available at <a href="https://demo.videowhisper.com/videocall-html5-videochat-php/">HTML5 Videochat - Plain PHP - Live Demo</a>: accessing directly shows broadcasting interface for performer and link to invite other participants.
-<br>For implementation of advanced capabilities (including 2 way videocalls / shows, video conferencing, collaboration, tips, pay per minute, advanced tabbed interface), see <a href="https://paidvideochat.com/html5-videochat/">Turnkey HTML5 Videochat Site</a> edition, available as WordPress plugin with full php source.
+<div class="ui segment"><h4 class="ui header"> VideoCall 2 Way - HTML5 Videochat - Standalone PHP </h4>This setup implements a 2 way video call room and text chat. This is a simple embedding preview edition, with simple scripts to embed app and showcase few features. 
+<br> + Official Live Demo: <a href="https://demo.videowhisper.com/videocall-html5-videochat-php/">VideoCall 2 Way - HTML5 Videochat - Standalone PHP - Live Demo</a>
+<br> + Download: <a href="https://github.com/videowhisper/VideoCall-HTML5-Videochat-PHP">GitHub: VideoCall HTML5 Videochat PHP </a>
+<br> + All HTML5 Feature Demos: <a href="https://demo.videowhisper.com/videocall-html5-videochat-php/">Video Call</a> | <a href="https://demo.videowhisper.com/html5-videochat-php/">Live Streaming</a> | <a href="https://demo.videowhisper.com/cam-recorder-html5-video-audio/">Cam/Mic Recorder</a>
+<br> + Compatible hosting for all features including live streaming servers and video tools: <a href="https://webrtchost.com/hosting-plans/">WebRTC Host</a>
+<br> + Technical support: <a href="https://videowhisper.com/tickets_submit.php">VideoWhisper.com</a>
+<br> + Turnkey Cam Site Solution: <a href="https://paidvideochat.com/html5-videochat/">Turnkey HTML5 Videochat Site</a> - Advanced capabilities (including video conferencing, collaboration, tips, pay per minute, advanced tabbed interface, 2 way videocalls / shows requested from group broadcast), available as WordPress plugin with full php source.
+
 </div>
 
 <?php 
