@@ -59,7 +59,7 @@ if ($task == 'login')
 	'videoBitrate' =>  $options['webrtcVideoBitrate'],
 	'audioBitrate' =>  $options['webrtcAudioBitrate'],
 	'audioCodec' =>  $options['webrtcAudioCodec'],
-	'autoBroadcast' => false,
+//	'autoBroadcast' => true,
 	'actionFullscreen' => true,
 	'actionFullpage' => false,
 
@@ -83,12 +83,12 @@ if ($task == 'login')
 
 				if (VW_DEVMODE)
 				{
-					$response['config']['cameraAutoBroadcast'] = '0';
-					$response['config']['videoAutoPlay '] = '0';
+					//$response['config']['cameraAutoBroadcast'] = '0';
+					//$response['config']['videoAutoPlay '] = '0';
 
 				}
 
-			if (!$isPerformer) $response['config']['cameraAutoBroadcast'] = '0';
+			//if (!$isPerformer) $response['config']['cameraAutoBroadcast'] = '0';
 
 }
 //end: task==login
