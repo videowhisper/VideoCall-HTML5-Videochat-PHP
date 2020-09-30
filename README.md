@@ -12,11 +12,11 @@ This plain php edition includes code and minimal scripts tp embed a HTML5 Videoc
 This edition showcases 2 way videocalls.
 For a complete implementation of advanced capabilities, see [Turnkey HTML5 Videochat Site](https://paidvideochat.com/html5-videochat/) edition, available as WordPress plugin with full php source. The turnkey site edition implements pay per minute videochat (group and private 2 way video calls) with membership, billing, advanced tools.
 
-## Simple PHP Edition Features: Video Call
+### Simple PHP Edition Features: Video Call
  * [x] Automatically create a room as caller and show link to invite client
  * [x] Embed the Video Call - HTML5 Videochat app to run with basic 2 way video chat features 
 
-##  Key Features for HTML5 Videochat / Video Call
+###  Key Features for HTML5 Videochat / Video Call
 Warning: some of these features are not active/implemented in this simplified edition, but can be enabled as in turnkey site edition.
  * [x] 2 way video call
  * [x] video/audio recorder, emoticons, mentions in text chat
@@ -29,7 +29,7 @@ Warning: some of these features are not active/implemented in this simplified ed
  * [ ] tips with multiple customizable options, gift images
  * [x] translation, text change support
  
-## Installation Instructions
+### Installation Instructions
  * Before installing, make sure your hosting environment meets all [requirements](https://videowhisper.com/?p=Requirements) including for a HTML5 WebRTC streaming relay. Production implementations should also involve Session Control. 
   
  1. If you don't use a [turnkey webrtc relay streaming hosting](https://webrtchost.com/hosting-plans/), configure WebRTC and SSL with Wowza SE.
@@ -37,7 +37,7 @@ Warning: some of these features are not active/implemented in this simplified ed
  3. Fill your streaming settings in settings.php file
  4. If you don't have SuPHP, enable write permissions (0777) for folder "uploads", required to save session and chat info.
 
-## Plain PHP Edition Limitations
+### Plain PHP Edition Limitations
  * The plain php edition refers to minimal scripts for configuring and accessing videochat room, so developers can integrate with own scripts. 
  * Plain php edition does not involve database and systems to manage members, rooms, billing. These depend on framework you want to integrate, plugins, database, member system. 
  * Applications reads parameters, wallet balance and other data with ajax calls from framework/integration scripts (that need to be implemented depending on framework, database, user scripts).
