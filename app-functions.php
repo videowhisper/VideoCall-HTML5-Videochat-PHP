@@ -242,7 +242,7 @@ function appPublicRoom($roomID, $userID, $options, $welcome ='')
 
 	$room['actionID'] = 0;
 
-	$room['welcome'] = sprintf('Welcome to public room "%s", user #%s!', $room['name'] , $userID);
+	$room['welcome'] = ' 👥 ' . sprintf('Welcome to private booth "%s", user #%s!', $room['name'] , $userID);
 	$room['welcomeImage'] = VW_H5V_URL . 'images/chat.png';
 
 
