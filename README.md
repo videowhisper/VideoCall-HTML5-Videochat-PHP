@@ -8,9 +8,9 @@
 Before installing, test the simple setup in the live demo:
 [PHP HTML5 Videochat / Video Call : Live Demo](https://demo.videowhisper.com/videocall-html5-videochat-php/)
 
-This plain php edition includes code and minimal scripts tp embed a HTML5 Videochat app and test/showcase some features. This edition is for integrating/using application with own scripts/framework.
+This plain php edition includes code and minimal scripts to embed the HTML5 Videochat app and test/showcase basic features. This edition is for integrating/using application with own scripts/framework.
 This edition showcases 2 way videocalls.
-For a complete implementation of advanced capabilities, see [Turnkey HTML5 Videochat Site](https://paidvideochat.com/html5-videochat/) edition, available as WordPress plugin with full php source. The turnkey site edition implements pay per minute videochat (group and private 2 way video calls) with membership, billing, advanced tools.
+For a complete implementation of advanced capabilities, see [Turnkey HTML5 Videochat Site](https://paidvideochat.com/html5-videochat/) edition, available as WordPress plugin with full php source. The turnkey site edition implements pay per minute videochat (group and private 2 way video calls) with membership, billing, advanced tools. 
 
 ### Simple PHP Edition Features: Video Call
  * [x] Automatically create a room as caller and show link to invite client

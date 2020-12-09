@@ -29,6 +29,13 @@ $task = $_POST['task'];
 if ($task != 'login')
 {
 	//verify user login, session validty
+	
+	$response['user'] = [
+	'balance' => 100,
+	'balancePending' => 98.50,
+	'time' => 60,
+	];
+
 }
 
 if ($task == 'login')
@@ -42,6 +49,7 @@ if ($task == 'login')
 	'loggedIn' => true,
 	'balance' => 100,
 	'avatar' => VW_H5V_URL .'images/avatar.png',
+	'time' => 0,
 	];
 
 
