@@ -31,8 +31,8 @@ if ($task != 'login')
 	//verify user login, session validty
 	
 	$response['user'] = [
-	'balance' => 100,
-	'balancePending' => 98.50,
+	'balance' => 654321,
+	'balancePending' => 654320.50,
 	'time' => 60,
 	];
 
@@ -47,7 +47,7 @@ if ($task == 'login')
 	'name'=> (($userID > 10000) ? 'Caller' : 'Client') . $userID,
 	'sessionID'=> intval($sessionID),
 	'loggedIn' => true,
-	'balance' => 100,
+	'balance' => 654321,
 	'avatar' => VW_H5V_URL .'images/avatar.png',
 	'time' => 0,
 	];
@@ -97,6 +97,8 @@ if ($task == 'login')
 				}
 
 			//if (!$isPerformer) $response['config']['cameraAutoBroadcast'] = '0';
+		
+		$response['config']['loaded'] = true;
 
 }
 //end: task==login
