@@ -192,6 +192,11 @@ function appRoomUsers($roomID, $options)
 	}
 
 
+function appStreamName($userID, $roomID, $options)
+{
+	return 'stream' . $userID;
+}
+
 function appStream($userID, $roomID, $options)
 {
 	$key = $options['webKey'] . $roomID; //a secret key to implement stream verification
@@ -232,9 +237,12 @@ function appPublicRoom($roomID, $userID, $options, $welcome ='')
 	
 
 	$room['streamBroadcast'] = appStream($userID, $roomID, $options);
+	$room['streamBroadcastName'] = appStreamName($userID, $roomID, $options);
+
 
 	$room['streamUID'] = intval($privateUID);
 	$room['streamPlayback'] = appStream($privateUID, $roomID, $options);
+	$room['streamPlaybackName'] = appStreamName($privateUID, $roomID, $options);
 
 	//$room['actionPrivate'] = !$isPerformer;
 	$room['actionPrivateClose'] = false;

@@ -60,6 +60,10 @@ if ($task == 'login')
 
 	//config params, const
 	$response['config'] = [
+	'serverType' => $options['serverType'],
+	'vwsSocket' => $options['vwsSocket'],
+	'vwsToken' => $options['vwsToken'],
+	
 	'wss' => $options['wsURLWebRTC'],
 	'application' => $options['applicationWebRTC'],
 
