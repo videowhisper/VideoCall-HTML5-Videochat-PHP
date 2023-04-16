@@ -17,10 +17,10 @@ For a complete implementation of advanced capabilities, see [Turnkey HTML5 Video
 
 ###  Key Features for HTML5 Videochat / Video Call
 Warning: some of these features are not active/implemented in this simplified edition, but can be enabled as in turnkey site edition.
- * [x] 2 way video call
- * [x] P2P streaming using VideoWhisper WebRTC signaling server + TURN / relay streaming using Wowza SE
- * [x] video/audio recorder, emoticons, mentions in text chat
+ * [x] WebRTC 2 way video call 
+ * [x] P2P streaming using VideoWhisper WebRTC signaling server + STUN/TURN 
  * [x] WebRTC relayed streaming (reliable and scalable to many clients from streaming server, independent of broadcaster upload connection)
+ * [x] video/audio recorder, emoticons, mentions in text chat
  * [x] fullscreen for videochat interface or playback video
  * [x] adaptive target video bitrate (depending on cam resolution) and configuration in resolution change
  * [x] broadcasting/playback stats (open controls and stats should show in few seconds)
@@ -31,8 +31,9 @@ Warning: some of these features are not active/implemented in this simplified ed
  
 ### Installation Instructions
  Before installing, make sure your hosting environment meets all [requirements](https://videowhisper.com/?p=Requirements) including the Wowza SE as HTML5 WebRTC streaming relay and/or the [VideoWhisper WebRTC signaling server](https://github.com/videowhisper/videowhisper-webrtc/). Production implementations should also involve Session Control for security and website integration (like list of live channels).
+ For testing, get a free plan from [WebRTC Host: P2P](https://webrtchost.com/hosting-plans/#WebRTC-Only).
   
- 1. If you don't use a [turnkey webrtc relay streaming host](https://webrtchost.com/hosting-plans/), configure WebRTC and SSL with Wowza SE or the VideoWhisper WebRTC server.
+ 1. If you don't use a [turnkey webrtc plan](https://webrtchost.com/hosting-plans/), configure WebRTC + SSL with Wowza SE or the VideoWhisper WebRTC + STUN/TURN server.
  2. Deploy files to your web installation location. (Example: yoursite.domain/html5-videochat/)
  3. Fill your streaming settings in settings.php file
  4. If you don't have SuPHP, enable write permissions (0777) for folder "uploads", required to save session and chat info.
