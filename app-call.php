@@ -71,6 +71,10 @@ if ($task == 'login')
 	'videoBitrate' =>  $options['webrtcVideoBitrate'],
 	'audioBitrate' =>  $options['webrtcAudioBitrate'],
 	'audioCodec' =>  $options['webrtcAudioCodec'],
+	
+	'snapshotInterval' => 180,
+	'snapshotDisable' => true,
+	
 //	'autoBroadcast' => true,
 	'actionFullscreen' => true,
 	'actionFullpage' => false,

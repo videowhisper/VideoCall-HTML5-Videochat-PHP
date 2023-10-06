@@ -56,7 +56,7 @@ $roomURL = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . explode('?
 if (!$_GET['r']) 
 {
 $bodyCode .= '<div class="ui segment"><h4 class="ui header">Invite URL</h4>Invite the other person (client) with this call room URL:<br>' . $roomURL ;
-$bodyCode .= '<br><a class="ui button" href="' . $roomURL . '" target="_answer"><i class="phone icon"></i> Answer </a>';
+$bodyCode .= '<br><a class="ui button" href="' . $roomURL . '" target="_answer"><i class="phone icon"></i> Answer </a> - Use a different device or browser to answer! Camera works only from 1 tab in same browser.';
 $bodyCode .= '</div>';
 }
 ?>
