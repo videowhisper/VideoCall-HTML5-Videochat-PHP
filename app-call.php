@@ -29,7 +29,7 @@ $task = $_POST['task'];
 if ($task != 'login')
 {
 	//verify user login, session validty
-	
+
 	$response['user'] = [
 	'balance' => 654321,
 	'balancePending' => 654320.50,
@@ -63,7 +63,7 @@ if ($task == 'login')
 	'serverType' => $options['serverType'],
 	'vwsSocket' => $options['vwsSocket'],
 	'vwsToken' => $options['vwsToken'],
-	
+
 	'wss' => $options['wsURLWebRTC'],
 	'application' => $options['applicationWebRTC'],
 
@@ -71,15 +71,16 @@ if ($task == 'login')
 	'videoBitrate' =>  $options['webrtcVideoBitrate'],
 	'audioBitrate' =>  $options['webrtcAudioBitrate'],
 	'audioCodec' =>  $options['webrtcAudioCodec'],
-	
+
 	'snapshotInterval' => 180,
 	'snapshotDisable' => true,
-	
+
 //	'autoBroadcast' => true,
 	'actionFullscreen' => true,
 	'actionFullpage' => false,
 
 	'serverURL' =>  VW_H5V_CALL,
+	'modeVersion' => '',
 
 	];
 
@@ -105,7 +106,7 @@ if ($task == 'login')
 				}
 
 			//if (!$isPerformer) $response['config']['cameraAutoBroadcast'] = '0';
-		
+
 		$response['config']['loaded'] = true;
 
 }
@@ -142,6 +143,9 @@ $needUpdate = array();
 //process app task (other than login)
 switch ($task)
 {
+
+case 'snapshot':
+	break;
 
 case 'login':
 	break;
