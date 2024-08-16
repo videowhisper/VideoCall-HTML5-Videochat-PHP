@@ -6,7 +6,7 @@ include_once('settings.php');
 //access existing room or create a new one as performer
 //all IDs generated randomly for demonstrative purposes; on integrations should be from database
 
-$roomID = intval($_GET['r']);
+$roomID = intval($_GET['r'] ?? 0);
 
 if (!$roomID)
 {
@@ -27,9 +27,9 @@ $sessionKey = $userID;
 
 
 //embed the app: all integrations should contain this part
-$dataCode .= "window.VideoWhisper = {userID: $userID, sessionID: $sessionID, sessionKey: '$sessionKey', roomID: $roomID, performer: $isPerformer, serverURL: '" . VW_H5V_CALL . "', modeVersion: ''}";
+$dataCode = "window.VideoWhisper = {userID: $userID, sessionID: $sessionID, sessionKey: '$sessionKey', roomID: $roomID, performer: $isPerformer, serverURL: '" . VW_H5V_CALL . "', modeVersion: ''}";
 
-$bodyCode .= <<<HTMLCODE
+$bodyCode = <<<HTMLCODE
 <!--VideoWhisper.com - HTML5 Videochat web app - uid:$userID p:$isPerformer s:$sessionID-->
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div style="display:block;min-height:600px;background-color:#eee;position:relative;z-index:102!important;"><div style="display:block;width:100%; height:100%; position:absolute;z-index:102!important;" id="videowhisperVideochat"></div></div>
@@ -37,7 +37,7 @@ $bodyCode .= <<<HTMLCODE
 HTMLCODE;
 
 //app requires semantic ui
-$headCode .= '<link href="//cdn.jsdelivr.net/npm/fomantic-ui@2.8.5/dist/semantic.min.css" rel="stylesheet" type="text/css">';
+$headCode = '<link href="//cdn.jsdelivr.net/npm/fomantic-ui@2.8.5/dist/semantic.min.css" rel="stylesheet" type="text/css">';
 
 //app css & js
 $CSSfiles = scandir(dirname(  __FILE__ ) . '/static/css/');
@@ -53,7 +53,7 @@ foreach ($JSfiles as $filename)
 
 //room link
 $roomURL = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0] . '?r=' . $roomID;
-if (!$_GET['r'])
+if (!isset($_GET['r']))
 {
 $bodyCode .= '<div class="ui segment"><h4 class="ui header">Invite URL</h4>Invite the other person (client) with this call room URL:<br>' . $roomURL ;
 $bodyCode .= '<br><a class="ui button" href="' . $roomURL . '" target="_answer"><i class="phone icon"></i> Answer </a> - Use a different device or browser to answer! Camera works only from 1 tab in same browser.';

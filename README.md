@@ -1,7 +1,7 @@
 ## VideoCall-HTML5-Videochat-PHP / 2 Way Video Calls - Standalone PHP
 
-- [Video Call PHP / HTML5 Videochat on VideoWhisper WebRTC](https://demo.videowhisper.com/p2p-html5-videocall/)
-- [Video Call PHP / HTML5 Videochat on Wowza SE](https://demo.videowhisper.com/videocall-html5-videochat-php/)
+- [Video Call PHP / HTML5 Videochat on P2P WebRTC](https://demo.videowhisper.com/p2p-html5-videocall/)
+- [Video Call PHP / HTML5 Videochat on Wowza SE relay](https://demo.videowhisper.com/videocall-html5-videochat-php/)
 
 ![PHP HTML5 Videochat / Video Call](/snapshots/h5a-2way-call.jpg)
 
@@ -81,4 +81,4 @@ For a quick setup, see [VideoWhisper Turnkey Stream Hosting Plans](https://webrt
 - [Video Calls & Random Chat Turnkey Site - WordPress](https://wordpress.org/plugins/webcam-2way-videochat/)
 - [WebRTC Signaling Server](https://github.com/videowhisper/videowhisper-webrtc/)
 
-For a free consultation [Consult VideoWhisper](https://consult.videowhisper.com) related to commercial services like turnkey site platforms, compatible hosting, custom development services.
+[Consult VideoWhisper](https://consult.videowhisper.com) for commercial services like turnkey site platforms, compatible hosting, custom development services.

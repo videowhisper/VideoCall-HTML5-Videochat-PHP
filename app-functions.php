@@ -3,7 +3,7 @@
 
 //For more advanced implementations see WordPress plugin and its php source code:
 //https://wordpress.org/plugins/ppv-live-webcams/
-//https://plugins.svn.wordpress.org/ppv-live-webcams/trunk/inc/h5videochat.php 
+//https://plugins.svn.wordpress.org/ppv-live-webcams/trunk/inc/h5videochat.php
 
 
 //demo setup saves variables in plain files in uploads folder: integration should use framework database
@@ -20,15 +20,15 @@
 
 			return unserialize(file_get_contents('uploads/' . $path));
 		}
-		
+
 		function arrayLoad($path)
 		{
 			$res = varLoad($path);
-			
+
 			if (is_array($res)) return $res;
 			else return array();
 		}
-		
+
 // app parameter functions
 
 	function __(  $text,  $domain = 'default' )
@@ -41,11 +41,11 @@
 			$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			return dirname($url) . '/' . str_replace( dirname(__FILE__) , '', $file);
 		}
-		
+
 	 function appFail($message = 'Request Failed', $response = null)
 	{
 		//bad request: fail
-		
+
 		if (!$response) $response = array();
 
 		$response['error'] = $message;
@@ -56,26 +56,26 @@
 
 		die();
 	}
-	
-	
+
+
 	 function appSfx()
 	{
 		//sound effects sources
-		
+
 		$base = VW_H5V_URL. 'sounds/';
-		
-		
+
+
 		return array(
 		'message' => $base . 'message.mp3',
 		'hello' => $base . 'hello.mp3',
-		'leave' => $base . 'leave.mp3',	
+		'leave' => $base . 'leave.mp3',
 		'call' => $base . 'call.mp3',
 		'warning' => $base . 'warning.mp3',
 		'error' => $base . 'error.mp3',
 		'buzz' => $base . 'buzz.mp3',
 		);
 	}
-		
+
 	function appText()
 	{
 		//implement translations
@@ -148,18 +148,18 @@
 
 function appRoomUsers($roomID, $options)
 	{
-		
+
 		$sessions = arrayLoad($roomID . '_sessions');
-		
+
 		foreach ($sessions as $key => $session)
 			{
-				if (!is_array($userMeta = unserialize($session['meta']))) $userMeta = array();
+				if (!is_array($userMeta = unserialize($session['meta'] ?? ''))) $userMeta = array();
 
 				$item = [];
 				$item['userID'] = intval($session['uid']);
-				$item['userName'] = $session['username'];
+				$item['userName'] = $session['username'] ?? '';
 				if (!$item['userName']) $item['userName'] = '#' . $session['uid'];
-				
+
 				$item['sdate'] = intval($session['sdate']);
 				$item['meta'] = $userMeta;
 				$item['updated'] = intval($session['edate']);
@@ -168,11 +168,11 @@ function appRoomUsers($roomID, $options)
 
 				$items[intval($session['uid'])] = $item;
 			}
-			
+
 			return $items;
 	}
 
-	
+
  function appTipOptions($options)
 	{
 
@@ -224,17 +224,17 @@ function appPublicRoom($roomID, $userID, $options, $welcome ='')
 	$isPerformer = ($userID == (10000+$roomID));
 
 	$clientID = $roomID;
-	
+
 	// $privateUID = the other user ID
-	
+
 	if ($isPerformer) $privateUID = $clientID;
 	else $privateUID = $room['performerID'];
 	$room['privateUID'] = $privateUID;
 
-	
+
 	//screen
 	$room['screen'] = 'Way2Screen';
-	
+
 
 	$room['streamBroadcast'] = appStream($userID, $roomID, $options);
 	$room['streamBroadcastName'] = appStreamName($userID, $roomID, $options);
@@ -264,7 +264,7 @@ function appPublicRoom($roomID, $userID, $options, $welcome ='')
 		$room['welcome'] .= "\n".'You are invited participant (client).';
 		}
 
-	
+
 	//if ($options['videochatNext']) if (!$isPerformer) $room['next'] = true;
 
 			if ($welcome) $room['welcome'] .= "\n" . $welcome;
@@ -272,7 +272,7 @@ function appPublicRoom($roomID, $userID, $options, $welcome ='')
 			//configure tipping options for clients
 			$room['tips'] = false;
 		if ($options['tips'])
-			if (!$session->broadcaster)
+			if (!isset($session) || !$session->broadcaster)
 			{
 				$tipOptions = appTipOptions($options);
 				if (count($tipOptions))
@@ -283,16 +283,16 @@ function appPublicRoom($roomID, $userID, $options, $welcome ='')
 				}
 			}
 
-			//demo goal	
+			//demo goal
 			$room['welcome'] .= "\n 🎁 " . 'Current gifts goal' .': '. 'Demo Goal';
 			$room['welcome'] .= "\n " . 'Chat can display goals that can be achieved with gifts/donations.';
 			$room['welcomeProgressValue'] = 8;
 			$room['welcomeProgressTotal'] = 10;
-			$room['welcomeProgressDetails'] =  'Demo Goal';	
-			
-		//offline snapshot (poster) and video 
+			$room['welcomeProgressDetails'] =  'Demo Goal';
+
+		//offline snapshot (poster) and video
 		$room['snapshot'] = VW_H5V_URL . 'images/no-picture.png';
-		$room['videoOffline'] = VW_H5V_URL . 'videos/hamsterad.mp4';;		
+		$room['videoOffline'] = VW_H5V_URL . 'videos/hamsterad.mp4';;
 
 		return $room;
 }

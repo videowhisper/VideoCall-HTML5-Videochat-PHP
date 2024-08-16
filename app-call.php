@@ -16,8 +16,8 @@ if ($VideoWhisper = $_POST['VideoWhisper'])
 	$roomID = intval($VideoWhisper['roomID']);
 	$sessionKey = intval($VideoWhisper['sessionKey']);
 
-	$privateUID = intval($VideoWhisper['privateUID']);
-	$roomActionID = intval($VideoWhisper['roomActionID']);
+	$privateUID = intval($VideoWhisper['privateUID'] ?? 0);
+	$roomActionID = intval($VideoWhisper['roomActionID'] ?? 0);
 }
 
 $response['VideoWhisper'] = 'https://videowhisper.com';
@@ -60,9 +60,9 @@ if ($task == 'login')
 
 	//config params, const
 	$response['config'] = [
-	'serverType' => $options['serverType'],
-	'vwsSocket' => $options['vwsSocket'],
-	'vwsToken' => $options['vwsToken'],
+	'serverType' => $options['serverType'] ?? '',
+	'vwsSocket' => $options['vwsSocket'] ?? '',
+	'vwsToken' => $options['vwsToken'] ?? '',
 
 	'wss' => $options['wsURLWebRTC'],
 	'application' => $options['applicationWebRTC'],
@@ -377,8 +377,8 @@ default:
 
 
 //update time
-$lastMessage = intval($_POST['lastMessage']);
-$lastMessageID = intval($_POST['lastMessageID']);
+$lastMessage = intval($_POST['lastMessage'] ?? 0);
+$lastMessageID = intval($_POST['lastMessageID'] ?? 0);
 
 //retrieve only messages since user came online / updated
 $sdate = 0;
@@ -468,7 +468,7 @@ $response['messages'] = $items; //messages list
 $response['timestamp'] = $ztime; //update time
 ///update message
 
-$response['lastMessageID'] = $idMax;
+$response['lastMessageID'] = $idMax ?? 0;
 
 $response['roomUpdate']['users'] = appRoomUsers($roomID, $options);
 
